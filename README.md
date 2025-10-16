@@ -1,5 +1,6 @@
 # Icnet Project
 V `./app` je umístěna spustitelná aplikace NactiData.exe.
+Případně v `.\IcnetProject\bin\Debug\net8.0\NactiData.exe"` po sestavení.
 
 ```bash
 PS C:\Users\David\source\repos\IcnetProject> .\app\NactiData.exe 4 2 1
