@@ -9,6 +9,10 @@ namespace IcnetProject
         /// <param name="args"></param>
         public static void Main(string[] args)
         {
+
+            // NOTE:   In README.md, there is alternative solution which is more extensible since it uses List<double>.
+            //         So the program can be easily modified to accept any number of arguments.
+
             if (args.Length != 3)
             {
                 Console.WriteLine("Three arguments are required: number1, number2, number3.");
