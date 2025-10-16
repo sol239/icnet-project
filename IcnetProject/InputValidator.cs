@@ -2,6 +2,9 @@
 
 namespace IcnetProject
 {
+    /// <summary>
+    /// A class for validating and parsing input strings.
+    /// </summary>
     public class InputValidator
     {
         /// <summary>
