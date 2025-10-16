@@ -1,4 +1,10 @@
-# Programování:
+# Icnet Project
+
+V `./app` je umístěna sestavená aplikace `NactiData.exe`, která splňuje následující zadání.
+
+## Zadání
+
+Programování:
 
 - Vytvoření Windows aplikace pro příkazový řádek v jazyce C#.
 - Aplikace se bude jmenovat NactiData.exe a jejími vstupními parametry jsou 3 čísla.
