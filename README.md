@@ -1,15 +1,77 @@
-# Programování:
+# ProgramovÃ¡nÃ­:
 
-- Vytvoøení Windows aplikace pro pøíkazovı øádek v jazyce C#.
-- Aplikace se bude jmenovat NactiData.exe a jejími vstupními parametry jsou 3 èísla.
-- Vıstupem aplikace jsou po spuštìní tøi hodnoty, kdy kadá je zobrazena na novém øádku: 
-	- souèet všech 3 èísel,
-	- souèin všech 3 èísel,
-	- souèet prvních dvou èísel dìlenı tøetím.
+- VytvoÅ™enÃ­ Windows aplikace pro pÅ™Ã­kazovÃ½ Å™Ã¡dek v jazyce C#.
+- Aplikace se bude jmenovat NactiData.exe a jejÃ­mi vstupnÃ­mi parametry jsou 3 ÄÃ­sla.
+- VÃ½stupem aplikace jsou po spuÅ¡tÄ›nÃ­ tÅ™i hodnoty, kdy kaÅ¾dÃ¡ je zobrazena na novÃ©m Å™Ã¡dku: 
+	- souÄet vÅ¡ech 3 ÄÃ­sel,
+	- souÄin vÅ¡ech 3 ÄÃ­sel,
+	- souÄet prvnÃ­ch dvou ÄÃ­sel dÄ›lenÃ½ tÅ™etÃ­m.
 
-V aplikaci je potøeba ošetøit dvì vıjimky:  
+V aplikaci je potÅ™eba oÅ¡etÅ™it dvÄ› vÃ½jimky:  
 
-- správnost všech tøí vstupních parametrù,
-- správnost numerickıch operací.
+- sprÃ¡vnost vÅ¡ech tÅ™Ã­ vstupnÃ­ch parametrÅ¯,
+- sprÃ¡vnost numerickÃ½ch operacÃ­.
 
-Úkol prosíme pøedat ve formì projektu Visual Studio. K øešení lze pouít Visual Studio Community Edition (https://visualstudio.microsoft.com/vs/community).
+Ãškol prosÃ­me pÅ™edat ve formÄ› projektu Visual Studio. K Å™eÅ¡enÃ­ lze pouÅ¾Ã­t Visual Studio Community Edition (https://visualstudio.microsoft.com/vs/community).
+
+
+---
+
+## AlternativnÃ­ Å™eÅ¡enÃ­:
+
+pro lepÅ¡Ã­ rozÅ¡iÅ™itelnost, napÅ™. kdyby byla potÅ™eba spoÄÃ­tat vÃ­ce ÄÃ­sel. tak je lepÅ¡Ã­ pracovat s polem
+a provÃ¡dÄ›t operace na nÄ›m:
+
+```csharp
+using System.Globalization;
+
+namespace IcnetProject
+{
+    internal class Program
+    {
+        /// <summary>
+        /// Main entry point of the application.
+        /// </summary>
+        /// <param name="args"></param>
+        public static void Main(string[] args)
+        {
+            if (args.Length != 3)
+            {
+                Console.WriteLine("Three arguments are required: number1, number2, number3");
+                return;
+            }
+
+            List<double> numbers = new List<double>();
+
+            try
+            {
+                numbers = args.Select(arg => double.Parse(arg, CultureInfo.InvariantCulture)).ToList();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("All arguments must be valid numbers.");
+                return;
+            }
+
+            double sum = numbers.Sum();
+            double product = numbers.Aggregate(1.0, (acc, val) => acc * val);
+            double thirdOperation = 0;
+
+            Console.WriteLine(sum);
+            Console.WriteLine(product);
+
+            if (numbers[2] == 0)
+            {
+                Console.WriteLine("Division by zero.");
+                return;
+            }
+            else
+            {
+                thirdOperation = (numbers[0] + numbers[1]) / numbers[2];
+            }
+
+            Console.WriteLine(thirdOperation);
+        }
+    }
+}
+```
