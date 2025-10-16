@@ -1,6 +1,14 @@
 # Icnet Project
+V `./app` je umístěna spustitelná aplikace NactiData.exe.
 
-V `./app` je umístěna sestavená aplikace `NactiData.exe`, která splňuje následující zadání.
+```bash
+PS C:\Users\David\source\repos\IcnetProject> .\app\NactiData.exe 4 2 1
+7
+8
+6
+```
+
+V IcnetProject.Tests je umístěn testovací projekt s MSTesty.
 
 ## Zadání
 
